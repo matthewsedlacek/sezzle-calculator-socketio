@@ -1,5 +1,4 @@
 import React from "react";
-import NewMessageForm from "./chatbox/NewMessageForm";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ChatHeader from "../components/chatbox/ChatHeader";

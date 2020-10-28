@@ -29,8 +29,10 @@ class Calculator extends Component {
     try {
       this.setState({
         result:
+          // eslint-disable-next-line
           this.state.result + " = " + (eval(this.state.result) || "") + "",
         resultPost:
+          // eslint-disable-next-line
           this.state.result + " = " + (eval(this.state.result) || "") + "",
       });
     } catch (e) {
