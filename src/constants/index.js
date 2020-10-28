@@ -7,11 +7,3 @@ export const HEADERS = {
   "Content-Type": "application/json",
   Accept: "application/json",
 };
-
-const API_ROOT =
-  process.env.NODE_ENV === "development" ? dev.url.API_ROOT : prod.url.API_ROOT;
-
-export const API_WS_ROOT =
-  process.env.NODE_ENV === "development"
-    ? dev.url.API_WS_ROOT
-    : prod.url.API_WS_ROOT;
