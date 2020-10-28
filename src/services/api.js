@@ -1,4 +1,4 @@
-const RANDOM_PET = `http://pet-library.moonhighway.com/api/randompet`;
+const RANDOM_PET = `https://pet-library.moonhighway.com/api/randompet`;
 
 const headers = () => {
   return {
