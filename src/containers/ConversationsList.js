@@ -77,7 +77,7 @@ class ConversationsList extends React.Component {
           />
         ) : null}
         <Card className="calculatorContainer">
-          <Typography variant="h2">Conversations</Typography>
+          <Typography variant="h4">Conversations</Typography>
           <br></br>
           <Typography variant="h6">Click To Join</Typography>
           <ul>{mapConversations(conversations, this.handleClick)}</ul>
