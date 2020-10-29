@@ -17,12 +17,12 @@ Visit https://sezzle-calculator-matthew-sedlacek.netlify.app/
 ## Local Installation
 
 1. Fork this repository
-2. Run `npm install` in terminal
-3. Run the backend server - refer to [backend](https://github.com/matthewsedlacek/sezzle-backend) repository
-4. Run `npm start` in your terminal
-5. Enjoy Sezzle Calculator
-
-Note: If errors with ActionCable Provider run `npm install --save react-actioncable-provider`
+2. Clone into folder of your choice
+3. `cd sezzle-frontend`
+4. Run `npm install` in terminal
+5. Run the backend server - refer to [backend](https://github.com/matthewsedlacek/sezzle-backend) repository
+6. Run `npm start` in your terminal
+7. Enjoy Sezzle Calculator
 
 ## Features
 
