@@ -1,6 +1,6 @@
 # Sezzle Calculator - Frontend
 
-An application that provides users the ability to practice buying and selling S&P 500 stocks using live stock market data. This [link](https://github.com/matthewsedlacek/sezzle-backend) will direct you to the backend repository.
+An application that provides multi-user chat with calculator functions in real-time.. This [link](https://github.com/matthewsedlacek/sezzle-backend) will direct you to the backend repository.
 
 ## Prompt
 
