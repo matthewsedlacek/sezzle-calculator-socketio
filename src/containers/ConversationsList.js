@@ -24,11 +24,7 @@ class ConversationsList extends React.Component {
     api.user.getPet().then((data) => {
       this.setState({
         username:
-          data.name +
-          " the " +
-          data.category.toLowerCase() +
-          " " +
-          randomNumber,
+          data.name + "the" + data.category.toLowerCase() + randomNumber,
         userImage: data.photo.thumb,
       });
     });

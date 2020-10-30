@@ -4,8 +4,12 @@ import MessageCard from "./MessageCard";
 import List from "@material-ui/core/List";
 
 const MessageList = (props) => {
+  const sortedMessages = props.messages.sort(function (a, b) {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+
   const renderMessages = () => {
-    return props.messages.map((soloMessage) => {
+    return sortedMessages.map((soloMessage) => {
       return (
         <MessageCard
           key={soloMessage.id}
