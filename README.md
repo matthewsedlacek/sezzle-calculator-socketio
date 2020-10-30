@@ -48,7 +48,7 @@ Users can:
 
 - Username is randomly assigned once initial chat is selected
 - Text orientation shown based on if the message is associated with the username in the session
-- Scroll to see what other users have posted and when
+- Scroll to see what other users have posted and when (limited to 10 most recent)
 
 ![Chat](README_assets/Chat.gif)
 
