@@ -3,6 +3,7 @@ import CalculatorDisplay from "../components/calculator/CalculatorDisplay";
 import Keypad from "../components/calculator/Keypad";
 import SezzleLogo from "../components/calculator/SezzleLogo";
 import Card from "react-bootstrap/Card";
+import { API_ROOT, HEADERS } from "./../constants";
 
 class Calculator extends Component {
   state = {
@@ -27,19 +28,29 @@ class Calculator extends Component {
 
   calculate = () => {
     try {
-      this.setState({
-        result:
-          // eslint-disable-next-line
-          this.state.result + " = " + (eval(this.state.result) || "") + "",
-        resultPost:
-          // eslint-disable-next-line
-          this.state.result + " = " + (eval(this.state.result) || "") + "",
-      });
+      this.handleSubmit();
     } catch (e) {
       this.setState({
         result: "error",
       });
     }
+  };
+
+  handleSubmit = () => {
+    this.setState({
+      result: this.state.result + " = " + (eval(this.state.result) || "") + "",
+    });
+
+    fetch(`${API_ROOT}/messages`, {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({
+        conversation_id: 1,
+        text: this.state.result + " = " + (eval(this.state.result) || "") + "",
+        username: "Matthew",
+      }),
+    });
+    this.setState({ result: "" });
   };
 
   reset = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import NewMessageForm from "../chatbox/NewMessageForm";
+// import NewMessageForm from "../chatbox/NewMessageForm";
 
 const Keypad = (props) => {
   return (
@@ -157,6 +157,7 @@ const Keypad = (props) => {
       >
         0
       </Button>
+      {/* <form onSubmit={this.handleSubmit}> */}
       <Button
         type="button"
         variant="danger"
@@ -165,6 +166,8 @@ const Keypad = (props) => {
       >
         =
       </Button>
+      {/* </form> */}
+
       <Button
         type="button"
         variant="warning"
@@ -174,11 +177,11 @@ const Keypad = (props) => {
         ÷
       </Button>
       <br />
-      <NewMessageForm
-        result={props.resultPost}
-        conversation_id={props.conversation_id}
-        username={props.username}
-      />
+      {/* <NewMessageForm
+          result={props.resultPost}
+          conversation_id={props.conversation_id}
+          username={props.username}
+        /> */}
     </div>
   );
 };
