@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionCable } from "react-actioncable-provider";
+// import { ActionCable } from "react-actioncable-provider";
 import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
 import Cable from "../components/Cable";
@@ -14,10 +14,6 @@ class ConversationsList extends React.Component {
     username: "",
     userImage: "",
   };
-
-  componentDidMount() {
-    this.setUser();
-  }
 
   setUser = (data) => {
     const randomNumber = Math.floor(Math.random() * 100 + 1);
@@ -62,16 +58,16 @@ class ConversationsList extends React.Component {
     const { conversations, activeConversation } = this.state;
     return (
       <div>
-        <ActionCable
+        {/* <ActionCable
           channel={{ channel: "ConversationsChannel" }}
           onReceived={this.handleReceivedConversation}
+        /> */}
+        {/* {this.state.conversations.length ? ( */}
+        <Cable
+          conversations={conversations}
+          handleReceivedMessage={this.handleReceivedMessage}
         />
-        {this.state.conversations.length ? (
-          <Cable
-            conversations={conversations}
-            handleReceivedMessage={this.handleReceivedMessage}
-          />
-        ) : null}
+
         <Card className="calculatorContainer">
           <Typography variant="h4">Conversations</Typography>
           <br></br>
