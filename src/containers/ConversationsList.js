@@ -10,6 +10,7 @@ import Card from "react-bootstrap/Card";
 class ConversationsList extends React.Component {
   state = {
     conversations: [],
+    messages: [],
     activeConversation: null,
     username: "",
     userImage: "",
@@ -28,9 +29,20 @@ class ConversationsList extends React.Component {
 
   componentDidMount = () => {
     this.setUser();
+    this.fetchConversations();
+    this.fetchMessages();
+  };
+
+  fetchConversations = () => {
     fetch(`${API_ROOT}/conversations`)
       .then((res) => res.json())
       .then((conversations) => this.setState({ conversations }));
+  };
+
+  fetchMessages = () => {
+    fetch(`${API_ROOT}/messages`)
+      .then((res) => res.json())
+      .then((messages) => this.setState({ messages }));
   };
 
   handleClick = (id) => {
@@ -45,6 +57,7 @@ class ConversationsList extends React.Component {
   };
 
   handleReceivedMessage = (response) => {
+    console.log(response);
     const { message } = response;
     const conversations = [...this.state.conversations];
     const conversation = conversations.find(
