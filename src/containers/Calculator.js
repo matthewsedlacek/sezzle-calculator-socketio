@@ -37,18 +37,13 @@ class Calculator extends Component {
   };
 
   handleSubmit = () => {
-    this.setState({
-      // eslint-disable-next-line
-      result: this.state.result + " = " + (eval(this.state.result) || "") + "",
-    });
-
     fetch(`${API_ROOT}/messages`, {
       method: "POST",
       headers: HEADERS,
       body: JSON.stringify({
         conversation_id: 1,
         // eslint-disable-next-line
-        text: this.state.result + " = " + (eval(this.state.result) || "") + "",
+        text: this.state.result + " = " + (eval(this.state.result) || 0) + "",
         username: this.props.username,
       }),
     });

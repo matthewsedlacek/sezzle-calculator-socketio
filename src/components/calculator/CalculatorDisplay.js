@@ -4,7 +4,7 @@ class CalculatorDisplay extends Component {
   render() {
     let { result } = this.props;
     return (
-      <div class="card">
+      <div className="card">
         <div className="result">
           <p>{result}</p>
         </div>

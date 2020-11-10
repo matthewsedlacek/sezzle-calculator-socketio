@@ -34,18 +34,6 @@ class ConversationsList extends React.Component {
       .then((conversations) => this.setState({ conversations }));
   };
 
-  handleClick = (id) => {
-    console.log(id);
-    this.setState({ activeConversation: id });
-  };
-
-  handleReceivedConversation = (response) => {
-    const { conversation } = response;
-    this.setState({
-      conversations: [...this.state.conversations, conversation],
-    });
-  };
-
   handleReceivedMessage = (response) => {
     const { message } = response;
     const conversations = [...this.state.conversations];
@@ -59,7 +47,7 @@ class ConversationsList extends React.Component {
   render = () => {
     const { conversations, activeConversation } = this.state;
     return (
-      <div>
+      <React.Fragment>
         <Cable
           conversations={conversations}
           handleReceivedMessage={this.handleReceivedMessage}
@@ -74,7 +62,7 @@ class ConversationsList extends React.Component {
             userImage={this.state.userImage}
           />
         ) : null}
-      </div>
+      </React.Fragment>
     );
   };
 }
