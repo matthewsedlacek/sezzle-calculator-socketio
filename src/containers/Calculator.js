@@ -38,6 +38,7 @@ class Calculator extends Component {
 
   handleSubmit = () => {
     this.setState({
+      // eslint-disable-next-line
       result: this.state.result + " = " + (eval(this.state.result) || "") + "",
     });
 
@@ -46,6 +47,7 @@ class Calculator extends Component {
       headers: HEADERS,
       body: JSON.stringify({
         conversation_id: 1,
+        // eslint-disable-next-line
         text: this.state.result + " = " + (eval(this.state.result) || "") + "",
         username: this.props.username,
       }),
