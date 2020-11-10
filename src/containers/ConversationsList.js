@@ -57,13 +57,12 @@ class ConversationsList extends React.Component {
   };
 
   handleReceivedMessage = (response) => {
-    console.log(response);
     const { message } = response;
     const conversations = [...this.state.conversations];
     const conversation = conversations.find(
       (conversation) => conversation.id === message.conversation_id
     );
-    conversation.messages = [...conversation.messages, message];
+    conversation.messages = [...conversation.messages.slice(0, 9), message];
     this.setState({ conversations });
   };
 
