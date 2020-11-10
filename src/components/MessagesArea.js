@@ -22,7 +22,7 @@ const MessagesArea = (props) => {
         <Grid style={{ padding: 20 }} item xs={7}>
           <Grid component={Paper}>
             <Grid item xs={12}>
-              <ChatHeader title={title} />
+              {/* <ChatHeader title={title} /> */}
               <User username={username} userImage={userImage} />
               <MessageList messages={messages} currentUser={username} />
             </Grid>
