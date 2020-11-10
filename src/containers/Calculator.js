@@ -47,7 +47,7 @@ class Calculator extends Component {
       body: JSON.stringify({
         conversation_id: 1,
         text: this.state.result + " = " + (eval(this.state.result) || "") + "",
-        username: "Matthew",
+        username: this.props.username,
       }),
     });
     this.setState({ result: "" });
