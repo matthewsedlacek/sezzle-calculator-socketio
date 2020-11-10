@@ -26,19 +26,12 @@ class ConversationsList extends React.Component {
   componentDidMount = () => {
     this.setUser();
     this.fetchConversations();
-    this.fetchMessages();
   };
 
   fetchConversations = () => {
     fetch(`${API_ROOT}/conversations`)
       .then((res) => res.json())
       .then((conversations) => this.setState({ conversations }));
-  };
-
-  fetchMessages = () => {
-    fetch(`${API_ROOT}/messages`)
-      .then((res) => res.json())
-      .then((messages) => this.setState({ messages }));
   };
 
   handleClick = (id) => {
