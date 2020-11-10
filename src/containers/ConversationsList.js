@@ -1,17 +1,13 @@
 import React from "react";
-// import { ActionCable } from "react-actioncable-provider";
 import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
 import Cable from "../components/Cable";
 import { api } from "../services/api.js";
-import Typography from "@material-ui/core/Typography";
-import Card from "react-bootstrap/Card";
 
 class ConversationsList extends React.Component {
   state = {
     conversations: [],
-    messages: [],
-    activeConversation: null,
+    activeConversation: 1,
     username: "",
     userImage: "",
   };
@@ -46,6 +42,7 @@ class ConversationsList extends React.Component {
   };
 
   handleClick = (id) => {
+    console.log(id);
     this.setState({ activeConversation: id });
   };
 
@@ -70,23 +67,11 @@ class ConversationsList extends React.Component {
     const { conversations, activeConversation } = this.state;
     return (
       <div>
-        {/* <ActionCable
-          channel={{ channel: "ConversationsChannel" }}
-          onReceived={this.handleReceivedConversation}
-        /> */}
-        {/* {this.state.conversations.length ? ( */}
         <Cable
           conversations={conversations}
           handleReceivedMessage={this.handleReceivedMessage}
         />
-
-        <Card className="calculatorContainer">
-          <Typography variant="h4">Conversations</Typography>
-          <br></br>
-          <Typography variant="h6">Click To Join</Typography>
-          <ul>{mapConversations(conversations, this.handleClick)}</ul>
-        </Card>
-        {activeConversation ? (
+        {conversations.length > 0 ? (
           <MessagesArea
             conversation={findActiveConversation(
               conversations,
@@ -109,14 +94,4 @@ const findActiveConversation = (conversations, activeConversation) => {
   return conversations.find(
     (conversation) => conversation.id === activeConversation
   );
-};
-
-const mapConversations = (conversations, handleClick) => {
-  return conversations.map((conversation) => {
-    return (
-      <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        {conversation.title}
-      </li>
-    );
-  });
 };
