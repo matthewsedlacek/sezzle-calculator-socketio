@@ -11,7 +11,7 @@ const MessagesArea = (props) => {
     conversation: { id, messages },
   } = props;
 
-  const { username, userImage } = props;
+  const { username, userImage, userId } = props;
 
   return (
     <div>
@@ -23,7 +23,7 @@ const MessagesArea = (props) => {
           <Grid component={Paper}>
             <Grid item xs={12}>
               {/* <ChatHeader title={title} /> */}
-              <User username={username} userImage={userImage} />
+              <User username={username} userImage={userImage} userId={userId} />
               <MessageList messages={messages} currentUser={username} />
             </Grid>
           </Grid>

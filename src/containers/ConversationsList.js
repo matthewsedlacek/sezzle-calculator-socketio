@@ -2,7 +2,6 @@ import React from "react";
 import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
 import Cable from "../components/Cable";
-import { api } from "../services/api.js";
 
 class ConversationsList extends React.Component {
   state = {
@@ -12,19 +11,7 @@ class ConversationsList extends React.Component {
     userImage: "",
   };
 
-  setUser = (data) => {
-    const randomNumber = Math.floor(Math.random() * 100 + 1);
-    api.user.getPet().then((data) => {
-      this.setState({
-        username:
-          data.name + "the" + data.category.toLowerCase() + randomNumber,
-        userImage: data.photo.thumb,
-      });
-    });
-  };
-
   componentDidMount = () => {
-    this.setUser();
     this.fetchConversations();
     this.fetchMessages();
   };
@@ -41,18 +28,6 @@ class ConversationsList extends React.Component {
       .then((messages) => this.setState({ messages }));
   };
 
-  handleClick = (id) => {
-    console.log(id);
-    this.setState({ activeConversation: id });
-  };
-
-  handleReceivedConversation = (response) => {
-    const { conversation } = response;
-    this.setState({
-      conversations: [...this.state.conversations, conversation],
-    });
-  };
-
   handleReceivedMessage = (response) => {
     const { message } = response;
     const conversations = [...this.state.conversations];
@@ -66,7 +41,7 @@ class ConversationsList extends React.Component {
   render = () => {
     const { conversations, activeConversation } = this.state;
     return (
-      <div>
+      <React.Fragment>
         <Cable
           conversations={conversations}
           handleReceivedMessage={this.handleReceivedMessage}
@@ -77,11 +52,12 @@ class ConversationsList extends React.Component {
               conversations,
               activeConversation
             )}
-            username={this.state.username}
+            username={this.props.username}
+            userId={this.props.uid}
             userImage={this.state.userImage}
           />
         ) : null}
-      </div>
+      </React.Fragment>
     );
   };
 }

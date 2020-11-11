@@ -12,9 +12,11 @@ const User = (props) => {
         <ListItemIcon>
           <Avatar alt="random user icon" src={props.userImage} />
         </ListItemIcon>
-        <ListItemText>{props.username}</ListItemText>
+        <ListItemText>
+          {props.username.length > 0 ? props.username : props.userId}
+        </ListItemText>
         <ListItemText
-          secondary={props.username ? "online" : "offline"}
+          secondary={props.userId ? "online" : "offline"}
           align="right"
         ></ListItemText>
       </ListItem>
