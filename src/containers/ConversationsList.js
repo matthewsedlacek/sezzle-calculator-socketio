@@ -26,12 +26,31 @@ class ConversationsList extends React.Component {
   componentDidMount = () => {
     this.setUser();
     this.fetchConversations();
+    this.fetchMessages();
   };
 
   fetchConversations = () => {
     fetch(`${API_ROOT}/conversations`)
       .then((res) => res.json())
       .then((conversations) => this.setState({ conversations }));
+  };
+
+  fetchMessages = () => {
+    fetch(`${API_ROOT}/messages`)
+      .then((res) => res.json())
+      .then((messages) => this.setState({ messages }));
+  };
+
+  handleClick = (id) => {
+    console.log(id);
+    this.setState({ activeConversation: id });
+  };
+
+  handleReceivedConversation = (response) => {
+    const { conversation } = response;
+    this.setState({
+      conversations: [...this.state.conversations, conversation],
+    });
   };
 
   handleReceivedMessage = (response) => {
@@ -47,7 +66,7 @@ class ConversationsList extends React.Component {
   render = () => {
     const { conversations, activeConversation } = this.state;
     return (
-      <React.Fragment>
+      <div>
         <Cable
           conversations={conversations}
           handleReceivedMessage={this.handleReceivedMessage}
@@ -62,7 +81,7 @@ class ConversationsList extends React.Component {
             userImage={this.state.userImage}
           />
         ) : null}
-      </React.Fragment>
+      </div>
     );
   };
 }
