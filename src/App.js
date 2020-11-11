@@ -37,9 +37,9 @@ export default class App extends Component {
     let username = this.state.username;
     const uid = this.generateUid();
     if (!username) {
-      username = "Guest" + uid;
+      username = "Guest";
     }
-    this.setState({ uid: uid, username: username });
+    this.setState({ uid: uid, username: `${username} ID:${uid}` });
   }
   render() {
     let renderDOM;
