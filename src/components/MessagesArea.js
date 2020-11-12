@@ -12,7 +12,6 @@ const MessagesArea = (props) => {
 
   const { username, userImage, userId } = props;
 
-  console.log(typeof userId);
   return (
     <div>
       <Grid container spacing={3}>
