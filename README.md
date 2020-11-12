@@ -12,7 +12,7 @@ An application that provides multi-user chat with calculator functions in real-t
 
 ## Live Demo
 
-Visit https://sezzle-calculator-matthew-sedlacek.netlify.app/
+Visit https://sezzle-calculator-2.netlify.app/
 
 ## Local Installation
 
@@ -28,11 +28,11 @@ Visit https://sezzle-calculator-matthew-sedlacek.netlify.app/
 
 Users can:
 
-**Conversations**
+**Login**
 
-- Join a Conversation by available chats from a list
+- Users can create a screen name or will be automatically labeled as Guest
 
-![Conversations](README_assets/Conversations.gif)
+![Login](README_assets/Login.gif)
 
 **Calculator**
 
@@ -46,7 +46,8 @@ Users can:
 
 **Chat**
 
-- Username is randomly assigned once initial chat is selected
+- Screen name is assigned by user or Guest by default
+- ID is randomly assigned
 - Text orientation shown based on if the message is associated with the username in the session
 - Scroll to see what other users have posted and when (limited to 10 most recent)
 
@@ -56,7 +57,7 @@ Users can:
 
 - React
 - Rails as API
-- Action Cable
+- Action Cable/ Action Cable Provider
 - Boostrap
 - Material UI
 - Websockets
@@ -64,12 +65,6 @@ Users can:
 ## Author
 
 - Matthew Sedlacek - [Github](https://github.com/matthewsedlacek) [LinkedIn](https://www.linkedin.com/in/matthew-sedlacek/)
-
-## External APIs
-
-https://moonhighway.com/
-
-- Generates Random Pet for Username
 
 ## Licensing
 
