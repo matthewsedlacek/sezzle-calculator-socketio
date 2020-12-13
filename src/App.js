@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-
 import ConversationsList from "./containers/ConversationsList";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";

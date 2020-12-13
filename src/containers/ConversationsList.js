@@ -1,11 +1,13 @@
 import React from "react";
 import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
+import io from "socket.io-client";
+
+const socket = io("http://localhost:8000");
 
 class ConversationsList extends React.Component {
   state = {
     messages: [],
-    activeConversation: 1,
     username: "",
     userImage: "",
   };
@@ -14,21 +16,23 @@ class ConversationsList extends React.Component {
     this.fetchMessages();
   };
 
+  changeData = () => socket.emit("chat message");
+
   fetchMessages = () => {
     fetch(`${API_ROOT}/messages`)
       .then((res) => res.json())
       .then((messages) => this.setState({ messages }));
   };
 
-  handleReceivedMessage = (response) => {
-    const { message } = response;
-    const conversations = [...this.state.conversations];
-    const conversation = conversations.find(
-      (conversation) => conversation.id === message.conversation_id
-    );
-    conversation.messages = [...conversation.messages.slice(0, 9), message];
-    this.setState({ conversations });
-  };
+  // handleReceivedMessage = (response) => {
+  //   const { message } = response;
+  //   const conversations = [...this.state.conversations];
+  //   const conversation = conversations.find(
+  //     (conversation) => conversation.id === message.conversation_id
+  //   );
+  //   conversation.messages = [...conversation.messages.slice(0, 9), message];
+  //   this.setState({ conversations });
+  // };
 
   render = () => {
     const { messages } = this.state;
