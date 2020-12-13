@@ -5,22 +5,22 @@ import Cable from "../components/Cable";
 
 class ConversationsList extends React.Component {
   state = {
-    conversations: [],
+    messages: [],
     activeConversation: 1,
     username: "",
     userImage: "",
   };
 
   componentDidMount = () => {
-    this.fetchConversations();
+    // this.fetchConversations();
     this.fetchMessages();
   };
 
-  fetchConversations = () => {
-    fetch(`${API_ROOT}/conversations`)
-      .then((res) => res.json())
-      .then((conversations) => this.setState({ conversations }));
-  };
+  // fetchConversations = () => {
+  //   fetch(`${API_ROOT}/conversations`)
+  //     .then((res) => res.json())
+  //     .then((conversations) => this.setState({ conversations }));
+  // };
 
   fetchMessages = () => {
     fetch(`${API_ROOT}/messages`)
@@ -39,19 +39,12 @@ class ConversationsList extends React.Component {
   };
 
   render = () => {
-    const { conversations, activeConversation } = this.state;
+    const { conversations, messages } = this.state;
     return (
       <React.Fragment>
-        <Cable
-          conversations={conversations}
-          handleReceivedMessage={this.handleReceivedMessage}
-        />
-        {conversations.length > 0 ? (
+        {messages.length > 0 ? (
           <MessagesArea
-            conversation={findActiveConversation(
-              conversations,
-              activeConversation
-            )}
+            messages={this.state.messages}
             username={this.props.username}
             userId={this.props.uid}
             userImage={this.state.userImage}
@@ -63,11 +56,3 @@ class ConversationsList extends React.Component {
 }
 
 export default ConversationsList;
-
-// helpers
-
-const findActiveConversation = (conversations, activeConversation) => {
-  return conversations.find(
-    (conversation) => conversation.id === activeConversation
-  );
-};
