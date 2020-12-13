@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import MessagesArea from "./MessagesArea";
 import socketIOClient from "socket.io-client";
 
-const socketEndpoint = "http://localhost:8000";
+const socketEndpoint = "https://serene-crag-73795.herokuapp.com";
 const fetchEndpoint = `${socketEndpoint}/messages`;
 const socket = socketIOClient(socketEndpoint);
 

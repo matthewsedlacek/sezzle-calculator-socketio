@@ -5,7 +5,7 @@ import SezzleLogo from "../components/calculator/SezzleLogo";
 import Card from "react-bootstrap/Card";
 import socketIOClient from "socket.io-client";
 
-const socketEndpoint = "http://localhost:8000";
+const socketEndpoint = "https://serene-crag-73795.herokuapp.com";
 const socket = socketIOClient(socketEndpoint);
 
 class Calculator extends Component {
