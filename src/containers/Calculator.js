@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import CalculatorDisplay from "../components/calculator/CalculatorDisplay";
 import Keypad from "../components/calculator/Keypad";
 import SezzleLogo from "../components/calculator/SezzleLogo";
@@ -36,19 +36,19 @@ class Calculator extends Component {
     }
   };
 
-  handleSubmit = () => {
-    fetch(`${API_ROOT}/messages`, {
-      method: "POST",
-      headers: HEADERS,
-      body: JSON.stringify({
-        conversation_id: 1,
-        // eslint-disable-next-line
-        text: this.state.result + " = " + (eval(this.state.result) || 0) + "",
-        username: this.props.username,
-      }),
-    });
-    this.setState({ result: "" });
-  };
+  // handleSubmit = () => {
+  //   fetch(`${API_ROOT}/messages`, {
+  //     method: "POST",
+  //     headers: HEADERS,
+  //     body: JSON.stringify({
+  //       conversation_id: 1,
+  //       // eslint-disable-next-line
+  //       text: this.state.result + " = " + (eval(this.state.result) || 0) + "",
+  //       username: this.props.username,
+  //     }),
+  //   });
+  //   this.setState({ result: "" });
+  // };
 
   reset = () => {
     this.setState({

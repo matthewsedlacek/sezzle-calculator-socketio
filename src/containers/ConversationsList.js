@@ -1,54 +1,44 @@
 import React from "react";
-import { API_ROOT } from "../constants";
+import { useEffect, useState } from "react";
+// import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
-import io from "socket.io-client";
+import socketIOClient from "socket.io-client";
 
-const socket = io("http://localhost:8000");
+const socketEndpoint = "http://localhost:8000";
+const fetchEndpoint = "http://localhost:3000/messages";
+const socket = socketIOClient(socketEndpoint);
 
-class ConversationsList extends React.Component {
-  state = {
-    messages: [],
-    username: "",
-    userImage: "",
-  };
+function ConversationsList(props) {
+  const [messages, setMessages] = useState([]);
 
-  componentDidMount = () => {
-    this.fetchMessages();
-  };
-
-  changeData = () => socket.emit("chat message");
-
-  fetchMessages = () => {
-    fetch(`${API_ROOT}/messages`)
+  useEffect(() => {
+    fetch(fetchEndpoint)
       .then((res) => res.json())
-      .then((messages) => this.setState({ messages }));
-  };
+      .then(setMessages)
+      .catch(console.log);
+  }, []);
 
-  // handleReceivedMessage = (response) => {
-  //   const { message } = response;
-  //   const conversations = [...this.state.conversations];
-  //   const conversation = conversations.find(
-  //     (conversation) => conversation.id === message.conversation_id
-  //   );
-  //   conversation.messages = [...conversation.messages.slice(0, 9), message];
-  //   this.setState({ conversations });
+  useEffect(() => {
+    if (socket) {
+      socket.on("chat message", (msgs) => {
+        setMessages(msgs);
+      });
+    }
+  }, []);
+
+  return (
+    <React.Fragment>
+      {messages.length > 0 ? (
+        <MessagesArea
+          messages={messages}
+          username={props.username}
+          userId={props.uid}
+          // userImage={this.state.userImage}
+        />
+      ) : null}
+    </React.Fragment>
+  );
   // };
-
-  render = () => {
-    const { messages } = this.state;
-    return (
-      <React.Fragment>
-        {messages.length > 0 ? (
-          <MessagesArea
-            messages={this.state.messages}
-            username={this.props.username}
-            userId={this.props.uid}
-            userImage={this.state.userImage}
-          />
-        ) : null}
-      </React.Fragment>
-    );
-  };
 }
 
 export default ConversationsList;
