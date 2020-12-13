@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-// import { API_ROOT } from "../constants";
-import MessagesArea from "../components/MessagesArea";
+import MessagesArea from "./MessagesArea";
 import socketIOClient from "socket.io-client";
 
 const socketEndpoint = "http://localhost:8000";
@@ -33,7 +32,6 @@ function ConversationsList(props) {
           messages={messages}
           username={props.username}
           userId={props.uid}
-          // userImage={this.state.userImage}
         />
       ) : null}
     </React.Fragment>

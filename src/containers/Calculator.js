@@ -3,7 +3,6 @@ import CalculatorDisplay from "../components/calculator/CalculatorDisplay";
 import Keypad from "../components/calculator/Keypad";
 import SezzleLogo from "../components/calculator/SezzleLogo";
 import Card from "react-bootstrap/Card";
-// import { API_ROOT, HEADERS } from "./../constants";
 import socketIOClient from "socket.io-client";
 
 const socketEndpoint = "http://localhost:8000";
@@ -41,8 +40,6 @@ class Calculator extends Component {
   };
 
   handleSubmit = (e) => {
-    // e.preventDefault();
-
     socket.emit(
       "chat message",
       JSON.stringify({
@@ -54,20 +51,6 @@ class Calculator extends Component {
 
     this.setState({ result: "" });
   };
-
-  // handleSubmit = () => {
-  //   fetch(`${API_ROOT}/messages`, {
-  //     method: "POST",
-  //     headers: HEADERS,
-  //     body: JSON.stringify({
-  //       conversation_id: 1,
-  //       // eslint-disable-next-line
-  //       text: this.state.result + " = " + (eval(this.state.result) || 0) + "",
-  //       username: this.props.username,
-  //     }),
-  //   });
-  //   this.setState({ result: "" });
-  // };
 
   reset = () => {
     this.setState({

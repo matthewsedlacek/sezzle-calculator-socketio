@@ -3,7 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import User from "../components/chatbox/User";
 import MessageList from "../components/chatbox/MessageList";
-import Calculator from "../containers/Calculator";
+import Calculator from "./Calculator";
 
 const MessagesArea = (props) => {
   const { username, userImage, userId, messages } = props;
