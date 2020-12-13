@@ -8,12 +8,10 @@ const moment = require("moment");
 
 const MessageCard = (props) => {
   let dateString = props.timestamp;
-  var utcStart = new moment(dateString, "YYYY-MM-DDTHH:mm").utc();
-  console.log(utcStart);
-  let dateObj = new Date(utcStart);
+  let dateObj = new Date(dateString);
   let momentObj = moment(dateObj);
   let momentString = momentObj.format("MMMM Do YYYY, h:mm:ss a");
-  // console.log(momentString);
+
   return (
     <ListItem>
       <Grid item xs={12}>
