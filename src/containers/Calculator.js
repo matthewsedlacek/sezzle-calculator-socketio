@@ -1,9 +1,13 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import CalculatorDisplay from "../components/calculator/CalculatorDisplay";
 import Keypad from "../components/calculator/Keypad";
 import SezzleLogo from "../components/calculator/SezzleLogo";
 import Card from "react-bootstrap/Card";
-import { API_ROOT, HEADERS } from "./../constants";
+// import { API_ROOT, HEADERS } from "./../constants";
+import socketIOClient from "socket.io-client";
+
+const socketEndpoint = "http://localhost:8000";
+const socket = socketIOClient(socketEndpoint);
 
 class Calculator extends Component {
   state = {
@@ -34,6 +38,21 @@ class Calculator extends Component {
         result: "error",
       });
     }
+  };
+
+  handleSubmit = (e) => {
+    // e.preventDefault();
+
+    socket.emit(
+      "chat message",
+      JSON.stringify({
+        // eslint-disable-next-line
+        text: this.state.result + " = " + (eval(this.state.result) || 0) + "",
+        username: this.props.username,
+      })
+    );
+
+    this.setState({ result: "" });
   };
 
   // handleSubmit = () => {
