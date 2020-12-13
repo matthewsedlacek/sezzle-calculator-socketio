@@ -1,7 +1,6 @@
 import React from "react";
 import { API_ROOT } from "../constants";
 import MessagesArea from "../components/MessagesArea";
-import Cable from "../components/Cable";
 
 class ConversationsList extends React.Component {
   state = {
@@ -12,15 +11,8 @@ class ConversationsList extends React.Component {
   };
 
   componentDidMount = () => {
-    // this.fetchConversations();
     this.fetchMessages();
   };
-
-  // fetchConversations = () => {
-  //   fetch(`${API_ROOT}/conversations`)
-  //     .then((res) => res.json())
-  //     .then((conversations) => this.setState({ conversations }));
-  // };
 
   fetchMessages = () => {
     fetch(`${API_ROOT}/messages`)
@@ -39,7 +31,7 @@ class ConversationsList extends React.Component {
   };
 
   render = () => {
-    const { conversations, messages } = this.state;
+    const { messages } = this.state;
     return (
       <React.Fragment>
         {messages.length > 0 ? (

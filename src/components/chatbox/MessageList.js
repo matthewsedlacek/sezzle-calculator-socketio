@@ -21,21 +21,6 @@ const MessageList = (props) => {
     });
   };
 
-  // const renderMessages = () => {
-  //   return sortedMessages.map((soloMessage) => {
-  //     return (
-  //       <MessageCard
-  //         key={soloMessage.id}
-  //         id={soloMessage.id}
-  //         messageText={soloMessage.text}
-  //         username={soloMessage.username}
-  //         timestamp={soloMessage.created_at}
-  //         currentUser={props.currentUser}
-  //       />
-  //     );
-  //   });
-  // };
-
   return <List className="chatboxMessagesContainer">{renderMessages()}</List>;
 };
 
