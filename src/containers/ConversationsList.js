@@ -4,7 +4,7 @@ import MessagesArea from "./MessagesArea";
 import socketIOClient from "socket.io-client";
 
 const socketEndpoint = "http://localhost:8000";
-const fetchEndpoint = "http://localhost:3000/messages";
+const fetchEndpoint = `${socketEndpoint}/messages`;
 const socket = socketIOClient(socketEndpoint);
 
 function ConversationsList(props) {
