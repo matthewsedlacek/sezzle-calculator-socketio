@@ -56,11 +56,10 @@ Users can:
 ## Technology Used
 
 - React
-- Rails as API
-- Action Cable/ Action Cable Provider
+- Node.js/Express.js as API
+- Socket.io
 - Boostrap
 - Material UI
-- Websockets
 
 ## Author
 
