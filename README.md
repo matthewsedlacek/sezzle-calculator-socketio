@@ -17,8 +17,8 @@ Visit https://sezzle-calculator-chat.netlify.app/
 ## Local Installation
 
 1. Fork this repository
-2. Clone down the local branch into folder of your choice
-3. `cd sezzle-frontend`
+2. Clone down the local branch into folder of your choice `git clone --single-branch --branch local https://github.com/matthewsedlacek/sezzle-calculator-socketio`
+3. `cd sezzle-calculator-socketio`
 4. Run `npm install` in terminal
 5. Run the backend server - refer to [backend](https://github.com/matthewsedlacek/sezzle-node-express-api/tree/local) repository and use the local branch
 6. Run `npm start` in your terminal
