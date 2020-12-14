@@ -25,7 +25,7 @@ Visit https://sezzle-calculator-chat.netlify.app/
 
 ## Testing
 
-To quickly test the application, open the live demo and input the below function into the console to submit 10 messages.
+To quickly test the application, open the live demo, enter a username, and input the below function into the console to submit 10 messages.
 
 ```javascript
 const mult = document.querySelector("button[name='*']");
