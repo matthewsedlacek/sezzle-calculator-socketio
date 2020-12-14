@@ -24,6 +24,21 @@ Visit https://sezzle-calculator-chat.netlify.app/
 6. Run `npm start` in your terminal
 7. Enjoy Sezzle Calculator
 
+## Testing
+
+To quickly test the application, open the live demo and input the below function into the console to submit 10 messages.
+
+```javascript
+const mult = document.querySelector("button[name='*']");
+const equals = document.querySelector("button[name='=']");
+for (let i = 0; i < 10; ++i) {
+  document.querySelector(`button[name="${i}"]`).click();
+  mult.click();
+  document.querySelector(`button[name="${i}"]`).click();
+  equals.click();
+}
+```
+
 ## Features
 
 Users can:
