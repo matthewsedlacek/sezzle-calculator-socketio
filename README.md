@@ -1,6 +1,6 @@
 # Sezzle Calculator - Frontend
 
-An application that provides multi-user chat with calculator functions in real-time. This [link](https://github.com/matthewsedlacek/sezzle-backend-2.0) will direct you to the backend repository.
+An application that provides multi-user chat with calculator functions in real-time. This [link](https://github.com/matthewsedlacek/sezzle-node-express-api) will direct you to the backend repository.
 
 ## Prompt
 
@@ -12,15 +12,15 @@ An application that provides multi-user chat with calculator functions in real-t
 
 ## Live Demo
 
-Visit https://sezzle-calculator-2.netlify.app/
+Visit https://sezzle-calculator-chat.netlify.app/
 
 ## Local Installation
 
 1. Fork this repository
-2. Clone into folder of your choice
+2. Clone down the local branch into folder of your choice
 3. `cd sezzle-frontend`
 4. Run `npm install` in terminal
-5. Run the backend server - refer to [backend](https://github.com/matthewsedlacek/sezzle-backend-2.0) repository
+5. Run the backend server - refer to [backend](https://github.com/matthewsedlacek/sezzle-node-express-api/tree/local) repository and use the local branch
 6. Run `npm start` in your terminal
 7. Enjoy Sezzle Calculator
 
